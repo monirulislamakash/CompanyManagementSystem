@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock  %}
+{% block title %}{% endblock  %}
+{% block body %}
+    <div class="container col-lg-5 mt-5 border border-#999 fcolor presing_box" style="height:242px;">
+        <form method="POST">
+        {% csrf_token %}
+            <h4>Sing Up me as a Teacher</h4>
+            <div class="form-check form-switch">
+                <input name="presingup" value="teacher" class="form-check-input" type="radio" id="flexSwitchCheckDefault">
+            </div>
+            <h4>Sing Up me as a Student</h4>
+            <div class="form-check form-switch">
+                <input name="presingup" value="student" class="form-check-input" type="radio" id="flexSwitchCheckDefault">
+            </div>
+            <button type="submit" class="btn" style="background:#37b34a;color:#fff;position:relative;width: 100px;
+            padding-right: 22px; float:right;">Next 
+                <ion-icon name="arrow-forward-outline" class="arotir"></ion-icon>
+            </button>
+        </form>
+    </div>
+    <!--Teacher-->
+    <div class="container col-lg-5 mt-5 border border-#999 fcolor presing_box" >
+        <form method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">NAME</label>
+                <input name="email" type="text" placeholder="Entar Your Name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">DESIGNATION</label>
+                <input name="email" type="text" placeholder="Entar Your Designarion" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">DEPARTMENT</label>
+                <input name="email" type="text" placeholder="Entar Your Department" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">DATE OF JOINING</label>
+                <input name="email" type="date"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">ACADEMIC QUALIFICATION</label>
+                <input name="email" type="text" placeholder="Academic Qualification" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">EXPERIENCE</label>
+                <input name="email" type="text" placeholder="Entar Your Experience" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">GENDER</label><br>
+                Male <input name="gender" type="radio"  >
+                Female <input name="gender" type="radio"  >
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">VOTER ID (SMART)</label>
+                <input name="email" type="text" placeholder="Entar Your Voter ID (SMART)" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">DATE OF BIRTH</label>
+                <input name="email" type="date"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">ADDRESS</label>
+                <input name="email" type="text" placeholder="Entar Your Address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">MOBILE NO (OFFICE)</label>
+                <input name="email" type="text" placeholder="Entar Your Mobile (OFFICE)" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">MOBILE NO (PERSINAL)</label>
+                <input name="email" type="text" placeholder="Entar Your Mobile (PERSINAL)" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">EMAIL</label>
+                <input name="email" type="text" placeholder="Entar Your email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <label for="exampleInputEmail1" class="form-label">BIO DATA</label>
+            <div class="form-floating">
+                
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Please Enter Your BIO</label>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">IMAGE 1ST</label>
+                <input name="email" type="file"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">IMAGE 2ND</label>
+                <input name="email" type="file"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">SCAND COPY OF NID</label>
+                <input name="email" type="file"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">ALL OF YOUR CERTIFICATE</label>
+                <input name="email" type="file"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            
+            <button type="submit" class="btn ms-auto" style="background:#37b34a;color:#fff;">Submit 
+                <ion-icon name="arrow-forward-outline" class="arotir"></ion-icon>
+            </button>
+        </form>
+    </div>
+    <!--Student-->
+    <div class="container col-lg-5 mt-5 border border-#999 fcolor presing_box" >
+        <form method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">SL</label>
+                <input name="email" type="text" placeholder="Entar Your Name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">DATE OF AD</label>
+                <input name="email" type="text" placeholder="Entar Your Designarion" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">COLLAGE ID</label>
+                <input name="email" type="text" placeholder="Entar Your Department" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">BORD ROLL</label>
+                <input name="email" type="date"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">REGISTRATION NUMBER</label>
+                <input name="email" type="text" placeholder="Academic Qualification" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">STUDENT NAME</label>
+                <input name="email" type="text" placeholder="Entar Your Experience" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">MOBILE NO(STUDENT)</label><br>
+                Male <input name="gender" type="radio"  >
+                Female <input name="gender" type="radio"  >
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">FATHER'S NAME</label>
+                <input name="email" type="text" placeholder="Entar Your Voter ID (SMART)" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">MOTHER'S NAME</label>
+                <input name="email" type="date"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">FATHER MOBILE</label>
+                <input name="email" type="text" placeholder="Entar Your Address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">MOTHER MOBILE</label>
+                <input name="email" type="text" placeholder="Entar Your Mobile (OFFICE)" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">ADDRESS (PARMANENT)</label>
+                <input name="email" type="text" placeholder="Entar Your Mobile (PERSINAL)" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">ADDRESS (LOCAL)</label>
+                <input name="email" type="text" placeholder="Entar Your Mobile (PERSINAL)" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">SSC YEAR'S</label>
+                <input name="email" type="file"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">GROUP</label>
+                <input name="email" type="file"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">BORD</label>
+                <input name="email" type="file"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">GPA</label>
+                <input name="email" type="file"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">SCAND COPY OF MARK SHEET</label>
+                <input name="email" type="file"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">SCAND COPY OF TESTMONIAL</label>
+                <input name="email" type="file"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">DATE OF BIRTH</label>
+                <input name="email" type="date"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">RELIGION</label>
+                <input name="email" type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">GENDER</label><br>
+                Male <input name="gender" type="radio"  >
+                Female <input name="gender" type="radio"  >
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">ADMITION FEE</label>
+                <input name="email" type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">TUTION FEE</label>
+                <input name="email" type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">SEMISTER FEE</label>
+                <input name="email" type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">TOTAL CONCRACT</label>
+                <input name="email" type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">PICTURE STUDENT</label>
+                <input name="email" type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">USER ID</label>
+                <input name="email" type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">PASSWORD</label>
+                <input name="email" type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">APPLICATION ID</label>
+                <input name="email" type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <button type="submit" class="btn ms-auto" style="background:#37b34a;color:#fff;">Submit 
+                <ion-icon name="arrow-forward-outline" class="arotir"></ion-icon>
+            </button>
+        </form>
+    </div>
+    
+{% endblock  %}
