@@ -1,10 +1,25 @@
 
+.mulclass{
+	width: 100%;
+	height: auto;
+	padding:0px;
+	margin:0px;
+}
 .side_bar{
 	height: 100vh;
 	width:20%;
 	background:#f8f9fa;
 	border-right: solid #efefef 3px;
 	float: left;
+	padding: 20px;
+}
+
+.main{
+	height: 100vh;
+	width:80%;
+	background:#f8f9fa;
+	border-right: solid #efefef 3px;
+	float: right;
 	padding: 20px;
 }
 .login_box{
@@ -24,4 +39,53 @@
 .arotir{
 	position: absolute;
     top: 11px;
+}
+.Profile_Pic_name{
+	width: 400px;
+    height: 500px;
+    background: #a5a3a333;
+    padding: 40px;
+    border-radius: 10px;
+	text-align: center;
+	display: inline-block;
+	margin-top: 50px;
+	transition: all .6s;
+}
+.Profile_Pic_name:hover{
+	box-shadow: 7px 8px 15px -4px;
+	transition: all .6s;
+}
+.Profile_Pic_name img{
+	border-radius: 50%;
+	height: 150px;
+	width: 150px;
+}
+.pro_opra{
+	width:65%;
+	height: 500px;
+	background: #f8f9fa;
+    padding: 40px;
+    border-radius: 10px;
+	float:right;
+	display: inline-block;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
+}
+.parsonal{
+	width: 150px;
+	height:150px;
+	background: #a5a3a333;
+	transition: all .6s;
+	text-align: center;
+	padding: 15px;
+	font-weight: bold;
+	padding-top:35px;
+}
+.parsonal:hover{
+	box-shadow: 7px 8px 15px -4px;
+	transition: all .6s;
+}
+.preadmition{
+	
 }

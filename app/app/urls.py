@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
+from django.conf import settings
 #admin text 
 admin.site.site_header = "Mangrove EERP Admin"
 admin.site.site_title = "Mangrove EERP Portal"
@@ -24,4 +25,4 @@ admin.site.index_title = "Welcome to Mangrove EERP Researcher Portal"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("MEERP.urls"))
-]
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

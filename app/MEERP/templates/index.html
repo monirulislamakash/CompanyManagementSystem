@@ -5,47 +5,74 @@
 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">{% endblock  %}
 {% block title %}Home{% endblock  %}
 {% block body %}
-<div class="">
+<div class="mulclass">
     <div class="side_bar ">
         <div class="accordion accordion-flush" id="accordionFlushExample">
-		  <div class="accordion-item">
-		    <h2 class="accordion-header" id="flush-headingOne">
-		      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-		        Student List
-		      </button>
-		    </h2>
-		    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-		      <div class="accordion-body">
-		      	!!under maintenance
-		      </div>
-		    </div>
-		  </div>
-		  <div class="accordion-item">
-		    <h2 class="accordion-header" id="flush-headingTwo">
-		      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-		        Teacher List
-		      </button>
-		    </h2>
-		    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-		    <div class="accordion-body">
-			  !!under maintenance
-		    </div>
-		  </div>
-		  <div class="accordion-item">
-		    <h2 class="accordion-header" id="flush-headingThree">
-		      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-		        Accordion Item #3
-		      </button>
-		    </h2>
-		    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-		    <div class="accordion-body">
-			  !!under maintenance
-		    </div>
-		  </div>
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="flush-headingOne">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+				Student List
+			</button>
+			</h2>
+			<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+			<div class="accordion-body">
+			
+			</div>
+			</div>
+		</div>
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="flush-headingTwo">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+				Teacher List
+			</button>
+			</h2>
+			<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+			<div class="accordion-body">
+			
+			</div>
+			</div>
+		</div>
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="flush-headingThree">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+				Accordion Item #3
+			</button>
+			</h2>
+			<div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+			<div class="accordion-body">
+			
+			</div>
+			</div>
+		</div>
 		</div>
     </div>
-    <div class="main">
-        
-    </div>
+	
+	<div class="main">
+		<div id="piechart"></div>
+	</div>
 </div>
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Confirm Student', {{confirm}}],
+  ['Out', 1],
+  ['Admit Student', 2],
+]);
+
+// Optional; add a title and set the width and height of the chart
+var options = {'title':'Student Status Ratio', 'width':400, 'height':400};
+ // Display the chart inside the <div> element with id="piechart"
+var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
 {% endblock  %}

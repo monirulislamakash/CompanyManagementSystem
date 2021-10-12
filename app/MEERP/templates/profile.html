@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock  %}
+{% block title %}{% endblock  %}
+{% block body %}
+<div class="container">
+<div class="Profile_Pic_name">
+    <img src="{% static 'profile/ava.jpg' %}">
+    <h2>Name You Name<h2>
+    <h5>Depertment<h5>
+    <h5>Roll<h5>
+    <h5>Seson<h5>
+</div>
+<div class="pro_opra">
+    <div class="parsonal">
+        <img src="{% static 'student/parsonal.png' %}" width="70" height="70">
+        Personal
+    </div>
+    <div class="parsonal">
+        <img src="{% static 'student/tution.png' %}" width="70" height="70">
+        Tuition Fee
+    </div>
+    <div class="parsonal">
+        <img src="{% static 'student/cradinchel.png' %}" width="70" height="70">
+        Credential
+    </div>
+    
+</div>
+</div>
+{% endblock  %}
