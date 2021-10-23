@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock  %}
+{% block title %}{% endblock  %}
+{% block body %}
+<div class="container col-lg-5 mt-3 pb-3 border border-#999 fcolor">
+<main class="form-signin">
+    <form method="POST">
+    {% csrf_token %}
+      <h1 class="h2 mt-3 mb-3 fcolor" align="center">Add Student Fee</h1>
+      <div class="mb-3 fcolor">
+        <label for="exampleInputEmail1" class="form-label">User Name</label>
+        <input name="user" type="text" placeholder="Entar Student Username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3 fcolor">
+        <label for="exampleInputEmail1" class="form-label">Amount</label>
+        <input name="amount" type="text" placeholder="Entar Amount" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <button type="submit" class="w-100 btn btn-lg btn ms-auto" style="background:#37b34a;color:#fff;">Add 
+                <ion-icon name="arrow-forward-outline" class="arotir"></ion-icon>
+        </button>
+    </form>
+  </main>
+</div>
+{% endblock  %}

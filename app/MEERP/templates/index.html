@@ -6,6 +6,7 @@
 {% block title %}Home{% endblock  %}
 {% block body %}
 <div class="mulclass">
+	{% if request.user.is_superuser %}
     <div class="side_bar ">
         <div class="accordion accordion-flush" id="accordionFlushExample">
 		<div class="accordion-item">
@@ -50,6 +51,49 @@
 	<div class="main">
 		<div id="piechart"></div>
 	</div>
+	{% else %}
+	<div class="Student_index">
+		<div class="card text-dark bg-light mb-3" style="height:120px; width:300px;">
+		<div class="card-header">Tuiton Fee</div>
+		<div class="card-body">
+			<h3 class="card-title">{{request.user.userstudent.TUTION_FEE}}</h3>
+		</div>
+		</div>
+		<div class="card text-dark bg-light mb-3" style="height:120px; width:300px;">
+		<div class="card-header">Semister Fee</div>
+		<div class="card-body">
+			<h3 class="card-title">{{request.user.userstudent.SEMISTER_FEE}}</h3>
+		</div>
+		</div>
+		<div class="card text-dark bg-light mb-3" style="height:120px; width:300px;">
+		<div class="card-header">Total Concract</div>
+		<div class="card-body">
+			<h3 class="card-title">{{request.user.userstudent.TOTAL_CONCRACT}}</h3>
+		</div>
+		</div>
+	</div>
+	<div class="Student_index">
+		<div class="card text-dark bg-light mb-3" style="height:120px; width:300px;">
+		<div class="card-header">Total Due</div>
+		<div class="card-body">
+			<h3 class="card-title">{{request.user.userstudent.Due}}</h3>
+		</div>
+		</div>
+		<div class="card text-dark bg-light mb-3" style="height:120px; width:300px;">
+		<div class="card-header">Total Paid</div>
+		<div class="card-body">
+			<h3 class="card-title">{{request.user.userstudent.Paid}}</h3>
+		</div>
+		</div>
+		<div class="card text-dark bg-light mb-3" style="height:120px; width:300px;">
+		<div class="card-header">Total Concract</div>
+		<div class="card-body">
+			<h3 class="card-title"></h3>
+		</div>
+		</div>
+	</div>
+	{% endif %}
+	
 </div>
 
 
@@ -65,7 +109,7 @@ function drawChart() {
   ['Task', 'Hours per Day'],
   ['Confirm Student', {{confirm}}],
   ['Out', 1],
-  ['Admit Student', 2],
+  ['Admit Student', {{addmition}}],
 ]);
 
 // Optional; add a title and set the width and height of the chart

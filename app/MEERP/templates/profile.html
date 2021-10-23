@@ -14,11 +14,11 @@
     <h5>Seson<h5>
 </div>
 <div class="pro_opra">
-    <div class="parsonal">
+    <div class="parsonal" data-bs-toggle="modal" data-bs-target="#Personal">
         <img src="{% static 'student/parsonal.png' %}" width="70" height="70">
         Personal
     </div>
-    <div class="parsonal">
+    <div class="parsonal" data-bs-toggle="modal" data-bs-target="#Tuition">
         <img src="{% static 'student/tution.png' %}" width="70" height="70">
         Tuition Fee
     </div>
@@ -28,5 +28,88 @@
     </div>
     
 </div>
+</div>
+<div class="modal fade" id="Personal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Personal Info</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table>
+            <tr>
+                <td>Nmae</td>
+                <td>Akash</td>
+            </tr>
+            <tr>
+                <td>Roll</td>
+                <td>1345</td>
+            </tr>
+            <tr>
+                <td>Department</td>
+                <td>Computer</td>
+            </tr>
+            <tr>
+                <td>GENDER</td>
+                <td>Male</td>
+            </tr>
+            <tr>
+                <td>RELIGION</td>
+                <td>Islam</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="Tuition" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Personal Info</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table>
+            <tr>
+                <td>Admition Fee</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Tution Fee</td>
+                <td>{{request.user.userstudent.TUTION_FEE}}</td>
+            </tr>
+            <tr>
+                <td>Semester Fee</td>
+                <td>{{request.user.userstudent.SEMISTER_FEE}}</td>
+            </tr>
+            <tr>
+                <td>Total Contract</td>
+                <td>{{request.user.userstudent.TOTAL_CONCRACT}}</td>
+            </tr>
+            <tr>
+                <td>Due</td>
+                <td>{{request.user.userstudent.Due}}</td>
+            </tr>
+            <tr>
+                <td>Paid</td>
+                <td>{{request.user.userstudent.Paid}}</td>
+            </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock  %}
