@@ -2,7 +2,8 @@
 {% load static %}
 {% load static %}
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">{% endblock  %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock  %}
 {% block title %}Home{% endblock  %}
 {% block body %}
 <div class="mulclass">
@@ -51,7 +52,8 @@
 	<div class="main">
 		<div id="piechart"></div>
 	</div>
-	{% else %}
+	{% endif %}
+	{% if student %}
 	<div class="Student_index">
 		<div class="card text-dark bg-light mb-3" style="height:120px; width:300px;">
 		<div class="card-header">Tuiton Fee</div>

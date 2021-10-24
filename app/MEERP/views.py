@@ -6,14 +6,17 @@ from .form import *
 # Create your views here.
 def index(request):
     if request.user.is_authenticated:
-        confirm=UserStudent.objects.filter(Confirm=True)
-        addmition=UserStudent.objects.filter(Confirm=False)
-        print(len(confirm),len(addmition))
-        sendvar={
-            "confirm":int(len(confirm)),
-            "addmition":int(len(addmition)),
-        }
-        return render(request,"index.html",sendvar)
+        if request.user.is_superuser:
+            confirm=UserStudent.objects.filter(Confirm=True)
+            addmition=UserStudent.objects.filter(Confirm=False)
+            print(len(confirm),len(addmition))
+            sendvar={
+                "confirm":int(len(confirm)),
+                "addmition":int(len(addmition)),
+            }
+            return render(request,"index.html",sendvar)
+        elif request.user.userteacher.DNID == "Teacher":
+            return render(request,"index.html",{"Teacher":"Teacher"})
     return redirect(login)
 
 def login(request):
