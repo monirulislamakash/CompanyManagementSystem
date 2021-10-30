@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock  %}
+{% block title %}{% endblock  %}
+{% block body %}
+    <!--Teacher-->
+    {% if prevalu < "2" %}
+    <div class="container col-lg-5 mt-5 border border-#999 fcolor presing_box" >
+        <form method="POST" enctype="multipart/form-data" action="{% url 'addusertecher' %}">
+        {% csrf_token %}
+            {{pfrom.as_p}}
+            <button type="submit" class="btn ms-auto" style="background:#37b34a;color:#fff;">Submit 
+                <ion-icon name="arrow-forward-outline" class="arotir"></ion-icon>
+            </button>
+        </form>
+    </div>
+    {% elif prevalu > "1" %}
+    <!--Student-->
+    <div class="container col-lg-5 mt-5 border border-#999 fcolor presing_box" >
+        <form method="POST" enctype="multipart/form-data" action="{% url 'addstudent' %}">
+        {% csrf_token %}
+            {{sfrom.as_p}}
+            <button type="submit" class="btn ms-auto" style="background:#37b34a;color:#fff;">Submit 
+                <ion-icon name="arrow-forward-outline" class="arotir"></ion-icon>
+            </button>
+        </form>
+    </div>
+    {% endif %}
+{% endblock  %}

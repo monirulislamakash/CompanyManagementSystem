@@ -94,6 +94,17 @@
 	justify-content: space-between;
 	background: #f8f9fa;
 }
+.pdfbutton {
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 7%;
+    height: 49px;
+    width: 173px;
+}
+.select{
+	margin-right: 30px;
+}
 .preadmition{
 	
 }

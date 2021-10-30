@@ -9,16 +9,42 @@ def index(request):
         if request.user.is_superuser:
             confirm=UserStudent.objects.filter(Confirm=True)
             addmition=UserStudent.objects.filter(Confirm=False)
-            print(len(confirm),len(addmition))
+            fieldname=UserStudent.objects.all()
+            Dep=Department.objects.all()
+            ses=Session.objects.all()
+
             sendvar={
                 "confirm":int(len(confirm)),
                 "addmition":int(len(addmition)),
+                'fildname':fieldname,
+                'Department':Dep,
+                'Session':ses
             }
             return render(request,"index.html",sendvar)
         elif request.user.userteacher.DNID == "Teacher":
             return render(request,"index.html",{"Teacher":"Teacher"})
+        elif request.user.userstudent.DNID == "student":
+            return render(request,"index.html",{"student":"student"})
     return redirect(login)
 
+def studentsearch(request):
+    if request.method=="POST":
+        session=request.POST.get('Session')
+        Group=request.POST.get('Group')
+        Dep=request.POST.get('Department')
+        Collageid=request.POST.get('Collageid')
+        print(session,Group,Dep,Collageid)
+        search=UserStudent.objects.filter(Session=session)
+        search=UserStudent.objects.filter(GROUP=Group,)
+        search=UserStudent.objects.filter(Department=Dep,)
+        search=UserStudent.objects.filter(COLLAGE_ID=Collageid)
+        
+        print(search)
+        sendvar={
+            'search':search
+        }
+        return render(request,"studentsearch.html",sendvar)
+        
 def login(request):
     email=request.POST.get("email")
     passw=request.POST.get("password")

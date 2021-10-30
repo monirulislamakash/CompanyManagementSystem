@@ -46,7 +46,7 @@ class Techer(forms.ModelForm):
 class Student(forms.ModelForm):
     class Meta:
         model=UserStudent
-        fields=['user','SL','DATE_OF_AD','COLLAGE_ID','BORD_ROLL','REGISTRATION_NUMBER','MOBILE_NO_STUDENT','FATHERS_NAME','MOTHERS_NAME',
+        fields=['user','SL','DATE_OF_AD','COLLAGE_ID','BORD_ROLL','REGISTRATION_NUMBER','Student_Name','Department','Session','MOBILE_NO_STUDENT','FATHERS_NAME','MOTHERS_NAME',
         'FATHER_MOBILE','MOTHERS_MOBILE','ADDRESS_PARMANENT','ADDRESS_LOCAL','SSC_YEAR','GROUP','BORD','GPA','SCAND_COPY_OF_MARK_SHEET',
         'SCAND_COPY_OF_TESTMONIAL','PICTURE_STUDENT','DATE_OF_BIRTH','RELIGION','GENDER','District','Upazila_OR_Thana','SCHOOL','ADMITION_FEE','TUTION_FEE',
         'SEMISTER_FEE','TOTAL_CONCRACT','Refferred_By','Refferrer_Number','Gurdian_Name','Gurdian_Relation','Father_NID',
@@ -58,6 +58,9 @@ class Student(forms.ModelForm):
             "COLLAGE_ID":forms.TextInput(attrs={"class":"form-control col-lg-3"}),
             "BORD_ROLL":forms.TextInput(attrs={"class":"form-control col-lg-3"}),
             "REGISTRATION_NUMBER":forms.TextInput(attrs={"class":"form-control col-lg-3"}),
+            "Student_Name":forms.TextInput(attrs={"class":"form-control col-lg-3"}),
+            "Department":forms.Select(attrs={"class":"form-control col-lg-3"}),
+            "Session":forms.Select(attrs={"class":"form-control col-lg-3"}),
             "MOBILE_NO_STUDENT":forms.TextInput(attrs={"class":"form-control col-lg-3"}),
             "FATHERS_NAME":forms.TextInput(attrs={"class":"form-control col-lg-3"}),
             "MOTHERS_NAME":forms.TextInput(attrs={"class":"form-control col-lg-3"}),

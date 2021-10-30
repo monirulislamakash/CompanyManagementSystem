@@ -3,6 +3,7 @@ from django.db.models.fields import BooleanField, CharField
 from django.contrib import auth
 from django.contrib.auth.models import User,AbstractUser
 from django.db.models.fields.files import FileField
+from django.db.models.fields.related import ForeignKey
 from django.http import request
 # Create your models here.
 class UserTeacher(models.Model):
@@ -15,7 +16,7 @@ class UserTeacher(models.Model):
     EXPERIENCE=models.CharField(max_length=50,default="")
     selectdnid=(
         ('Teacher','Teacher'),
-        ('Acounts','Acounts')
+        ('Acounts','Acounts'),
         )
     DNID=models.CharField(max_length=50,choices=selectdnid,default="Teacher")
     selectgender=(
@@ -36,6 +37,14 @@ class UserTeacher(models.Model):
     ALL_OF_YOUR_CERTIFICATE=models.FileField(upload_to="static/techerprode/ALL_OF_YOUR_CERTIFICATE",default="static/logo/logo.png")
     def __str__(self):
         return str(self.user)
+class Department(models.Model):
+    Name=CharField(max_length=100)
+    def __str__(self):
+        return str(self.Name)
+class Session(models.Model):
+    Name=CharField(max_length=100)
+    def __str__(self):
+        return str(self.Name)
 class UserStudent(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
     SL=models.CharField(max_length=50,default="")
@@ -45,6 +54,8 @@ class UserStudent(models.Model):
     BORD_ROLL=models.CharField(max_length=50,default="")
     REGISTRATION_NUMBER=models.CharField(max_length=50,default="")
     Student_Name=models.CharField(max_length=50,default="")
+    Department=models.CharField(max_length=50,default="")
+    Session=models.CharField(max_length=50,default="")
     MOBILE_NO_STUDENT=models.CharField(max_length=50,default="")
     FATHERS_NAME=models.CharField(max_length=50,default="")
     MOTHERS_NAME=models.CharField(max_length=50,default="")

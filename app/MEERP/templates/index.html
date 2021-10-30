@@ -50,6 +50,66 @@
     </div>
 	
 	<div class="main">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			</ul>
+			<form method="POST" action="{% url 'studentsearch' %}" class="d-flex">
+				{% csrf_token %}
+				<select name='Session' class="form-select select" aria-label="Default select example">
+					<option selected>Select Session</option>
+					{% for i in Session %}
+						<option>{{i}}</option>
+					{% endfor %}
+				</select>
+				
+				<select name='Department' class="form-select select" aria-label="Default select example">
+					<option selected>Select Department</option>
+					{% for i in Department %}
+						<option>{{i}}</option>
+					{% endfor %}
+				</select>
+
+				<select name='Group' class="form-select select" aria-label="Default select example">
+				<option selected>Select Group</option>
+				<option value="1">A</option>
+				<option value="2">B</option>
+				<option value="3">C</option>
+				</select>
+
+				<input name="Collageid" type="text" placeholder="Student Collage ID" class="form-control select" id="exampleInputEmail1" aria-describedby="emailHelp" style="width: 160PX;">
+				<button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+			</div>
+		</div>
+		</nav>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			</ul>
+			<form method="POST" action="{% url 'studentsearch' %}" class="d-flex">
+				<!--{% csrf_token %}
+				<select name="searchname">
+					<option>Select User</option>
+					{% for i in fildname %}
+						<option value='{{i.COLLAGE_ID}}'>{{i}}</option>
+					{% endfor %}
+				</select>
+				<button class="btn btn-outline-success" type="submit">Search</button>-->
+			</form>
+			</div>
+		</div>
+		</nav>
+
+		<!--Graph-->
 		<div id="piechart"></div>
 	</div>
 	{% endif %}
