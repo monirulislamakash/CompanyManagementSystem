@@ -51,6 +51,7 @@ class UserStudent(models.Model):
     DNID=models.CharField(max_length=50,default="student")
     DATE_OF_AD=models.DateField(default="")
     COLLAGE_ID=models.CharField(max_length=50,default="",unique=True)
+    Section=models.CharField(max_length=50,default="")
     BORD_ROLL=models.CharField(max_length=50,default="")
     REGISTRATION_NUMBER=models.CharField(max_length=50,default="")
     Student_Name=models.CharField(max_length=50,default="")
@@ -96,7 +97,8 @@ class UserStudent(models.Model):
     Mother_NID=models.CharField(max_length=50,default="")
     Student_NID_or_Birth_Crtificate=models.CharField(max_length=50,default="")
     Confirm=BooleanField(default=False)
-
+    class Meta:
+        db_table = 'userstudent'
     def __str__(self):
         return str(self.user)
 class Wellwisher(models.Model):

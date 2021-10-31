@@ -76,9 +76,9 @@
 
 				<select name='Group' class="form-select select" aria-label="Default select example">
 				<option selected>Select Group</option>
-				<option value="1">A</option>
-				<option value="2">B</option>
-				<option value="3">C</option>
+				<option>A</option>
+				<option>B</option>
+				<option>C</option>
 				</select>
 
 				<input name="Collageid" type="text" placeholder="Student Collage ID" class="form-control select" id="exampleInputEmail1" aria-describedby="emailHelp" style="width: 160PX;">
@@ -87,27 +87,176 @@
 			</div>
 		</div>
 		</nav>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container-fluid">
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+
+		<div>
+		
+		<div class="accordion accordion-flush" id="accordionFlushExample">
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="flush-headingOne">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+				Student List
 			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-			</ul>
-			<form method="POST" action="{% url 'studentsearch' %}" class="d-flex">
-				<!--{% csrf_token %}
-				<select name="searchname">
-					<option>Select User</option>
-					{% for i in fildname %}
-						<option value='{{i.COLLAGE_ID}}'>{{i}}</option>
-					{% endfor %}
-				</select>
-				<button class="btn btn-outline-success" type="submit">Search</button>-->
+			</h2>
+			<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+			<div class="accordion-body">
+			<form method="POST" action="{% url 'studentsearchpro' %}" class="d-flex">
+			{% csrf_token %}
+				<table class="table table-dark table-striped" style="width:50%;display:inline-block;">
+					
+					<tr>
+						<td>Student Name</td>
+						<td>
+							<div class="form-check form-switch">
+								<input name="studentname" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>Student Phone Number</td>
+						<td>
+							<div class="form-check form-switch">
+								<input name="student_phone" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>Father Nmae</td>
+						<td>
+							<div class="form-check form-switch">
+								<input name="fathername" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>Father Phone Number</td>
+						<td>
+							<div class="form-check form-switch">
+								<input name="father_phone" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>Mother Name</td>
+						<td>
+							<div class="form-check form-switch">
+								<input name="mother_name" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>Mother Phone Number</td>
+						<td>
+							<div class="form-check form-switch">
+								<input name="mother_phone" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+							</div>
+						</td>
+					</tr>
+
+				</table>
+			<button type="submit">Submit</button>
 			</form>
 			</div>
+			</div>
 		</div>
-		</nav>
+
+
+		</div>
 
 		<!--Graph-->
 		<div id="piechart"></div>

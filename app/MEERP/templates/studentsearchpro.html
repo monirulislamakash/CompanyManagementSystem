@@ -1,0 +1,46 @@
+<table class="table table-dark table-hover" style="width:50%;">
+        <thead>
+            <tr>
+                <th scope="col">Field</th>
+                <th scope="col">value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if studentname %}
+            <tr>
+                <td>Student Name</td>
+                <td>{{var.Student_Name}}</td>
+            </tr>
+            {% endif %}
+            {% if studentphone %}
+            <tr>
+                <td>Student Phone</td>
+                <td>{{var.MOBILE_NO_STUDENT}}</td>
+            </tr>
+            {% endif %}
+            {% if fathername %}
+            <tr>
+                <td>Father Name</td>
+                <td>{{var.FATHERS_NAME}}</td>
+            </tr>
+            {% endif %}
+            {% if fatherphone %}
+            <tr>
+                <td>Father Phone</td>
+                <td>{{var.FATHER_MOBILE}}</td>
+            </tr>
+            {% endif %}
+            {% if mothername %}
+            <tr>
+                <td>Mother Name</td>
+                <td>{{var.MOTHERS_NAME}}</td>
+            </tr>
+            {% endif %}
+            {% if motherphone %}
+            <tr>
+                <td>Mother Phone</td>
+                <td>{{var.MOTHERS_MOBILE}}</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>

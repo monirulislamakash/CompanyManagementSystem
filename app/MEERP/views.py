@@ -12,13 +12,17 @@ def index(request):
             fieldname=UserStudent.objects.all()
             Dep=Department.objects.all()
             ses=Session.objects.all()
-
+            Parsonal=['Student_Name','MOBILE_NO_STUDENT','FATHERS_NAME','MOTHERS_NAME',
+            'FATHER_MOBILE','MOTHERS_MOBILE','ADDRESS_PARMANENT','ADDRESS_LOCAL',
+            'RELIGION','GENDER','District','Upazila_OR_Thana','Gurdian_Name','Gurdian_Relation','Father_NID',
+            'Mother_NID','Student_NID_or_Birth_Crtificate']
             sendvar={
                 "confirm":int(len(confirm)),
                 "addmition":int(len(addmition)),
                 'fildname':fieldname,
                 'Department':Dep,
-                'Session':ses
+                'Session':ses,
+                'Parsonal':Parsonal
             }
             return render(request,"index.html",sendvar)
         elif request.user.userteacher.DNID == "Teacher":
@@ -26,6 +30,61 @@ def index(request):
         elif request.user.userstudent.DNID == "student":
             return render(request,"index.html",{"student":"student"})
     return redirect(login)
+def studentsearchpro(request):
+    Student_Name=request.POST.get("studentname")
+    MOBILE_NO_STUDENT=request.POST.get("student_phone")
+    FATHERS_NAME=request.POST.get("fathername")
+    MOTHERS_NAME=request.POST.get("mother_name")
+    FATHER_MOBILE=request.POST.get("father_phone")
+    MOTHERS_MOBILE=request.POST.get("mother_phone")
+    if Student_Name=='on':
+        var=UserStudent.objects.get(COLLAGE_ID=17130)
+        sendvar={
+            'var':var
+        }
+        return render(request,"studentsearchpro.html",{'studentname':'studentname'},sendvar)
+    if MOBILE_NO_STUDENT=='on':
+        var=UserStudent.objects.get(COLLAGE_ID=17130)
+        sendvar={
+            'var':var
+        }
+        return render(request,"studentsearchpro.html",{'studentphone':'studentphone'},sendvar)
+    if FATHERS_NAME=='on':
+        var=UserStudent.objects.get(COLLAGE_ID=17130)
+        sendvar={
+            'var':var
+        }
+        return render(request,"studentsearchpro.html",{'fathername':'fathername'},sendvar)
+    if MOTHERS_NAME=='on':
+        var=UserStudent.objects.get(COLLAGE_ID=17130)
+        sendvar={
+            'var':var
+        }
+        return render(request,"studentsearchpro.html",{'fatherphone':'fatherphone'},sendvar)
+    if FATHER_MOBILE=='on':
+        var=UserStudent.objects.get(COLLAGE_ID=17130)
+        sendvar={
+            'var':var
+        }
+        return render(request,"studentsearchpro.html",{'mothername':'mothername'},sendvar)
+    if MOTHERS_MOBILE=='on':
+        var=UserStudent.objects.get(COLLAGE_ID=17130)
+        sendvar={
+            'var':var
+        }
+        return render(request,"studentsearchpro.html",{'motherphone':'motherphone'},sendvar)
+    '''ADDRESS_PARMANENT=request.POST.get("")
+    ADDRESS_LOCAL=request.POST.get("")
+    RELIGION=request.POST.get("")
+    GENDER=request.POST.get("")
+    District=request.POST.get("")
+    Upazila_OR_Thana=request.POST.get("")
+    Gurdian_Name=request.POST.get("")
+    Gurdian_Relation=request.POST.get("")
+    Father_NID=request.POST.get("")
+    Mother_NID=request.POST.get("")
+    Student_NID_or_Birth_Crtificate=request.POST.get("")'''
+    return render(request,"studentsearchpro.html")
 
 def studentsearch(request):
     if request.method=="POST":
@@ -34,16 +93,44 @@ def studentsearch(request):
         Dep=request.POST.get('Department')
         Collageid=request.POST.get('Collageid')
         print(session,Group,Dep,Collageid)
-        search=UserStudent.objects.filter(Session=session)
-        search=UserStudent.objects.filter(GROUP=Group,)
-        search=UserStudent.objects.filter(Department=Dep,)
-        search=UserStudent.objects.filter(COLLAGE_ID=Collageid)
-        
-        print(search)
-        sendvar={
-            'search':search
-        }
-        return render(request,"studentsearch.html",sendvar)
+        if session!="Select Session" and Group!="Select Group" and Dep!="Select Department":
+            search=UserStudent.objects.raw('select * from userstudent where Session="'+session+'" and Section="'+Group+'" and Department="'+Dep+'"')
+            print(search,"1")
+            sendvar={
+                'search':search
+            }
+            return render(request,"studentsearch.html",sendvar)
+        elif session!="Select Session" and Dep!="Select Department":
+            search=UserStudent.objects.filter(Session=session,Department=Dep)
+            print(search,"2")
+            sendvar={
+                'search':search
+            }
+            return render(request,"studentsearch.html",sendvar)
+        elif Group!="Select Group" and Dep!="Select Department":
+            search=UserStudent.objects.filter(Section=Group,Department=Dep)
+            print(search,"3")
+            sendvar={
+                'search':search
+            }
+            return render(request,"studentsearch.html",sendvar)
+
+
+        elif Collageid!="4":
+            search=UserStudent.objects.filter(COLLAGE_ID=Collageid)
+            print(search,"")
+            sendvar={
+                'search':search
+            }
+            return render(request,"studentsearch.html",sendvar)
+        elif Dep!="Select Department":
+            search=UserStudent.objects.filter(Department=Dep)
+            print(search,"5")
+            sendvar={
+                'search':search
+            }
+            return render(request,"studentsearch.html",sendvar)
+    return render(request,"studentsearch.html")
         
 def login(request):
     email=request.POST.get("email")
